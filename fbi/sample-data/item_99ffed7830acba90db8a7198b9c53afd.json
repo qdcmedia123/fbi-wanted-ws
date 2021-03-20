@@ -1,0 +1,81 @@
+{
+  "images": [{
+    "original": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/@@images/image",
+    "thumb": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/@@images/image/thumb",
+    "caption": null,
+    "large": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/@@images/image/large"
+  }, {
+    "original": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r1.jpg",
+    "thumb": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r1.jpg/@@images/image/thumb",
+    "caption": "",
+    "large": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r1.jpg/@@images/image/large"
+  }, {
+    "original": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/mist-photo.jpg",
+    "thumb": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/mist-photo.jpg/@@images/image/thumb",
+    "caption": "",
+    "large": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/mist-photo.jpg/@@images/image/large"
+  }, {
+    "original": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r3.jpg",
+    "thumb": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r3.jpg/@@images/image/thumb",
+    "caption": "",
+    "large": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinson_r3.jpg/@@images/image/large"
+  }],
+  "legat_names": null,
+  "description": "Kish Island, Iran\r\nMarch 9, 2007",
+  "weight_min": 104,
+  "publication": "2012-02-15T12:00:00",
+  "locations": null,
+  "modified": "2021-03-11T13:03:01+00:00",
+  "age_min": null,
+  "age_max": null,
+  "person_classification": "Victim",
+  "eyes_raw": "Blue",
+  "weight": "104 kg (230 pounds) - at the time of his disappearance",
+  "weight_max": 230,
+  "sex": "Male",
+  "race": "white",
+  "additional_information": null,
+  "place_of_birth": "Flushing, New York",
+  "subjects": ["Kidnappings and Missing Persons"],
+  "languages": null,
+  "aliases": null,
+  "coordinates": [],
+  "scars_and_marks": null,
+  "url": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson",
+  "title": "ROBERT A. LEVINSON",
+  "occupations": null,
+  "build": null,
+  "caution": null,
+  "warning_message": null,
+  "hair_raw": "Gray",
+  "race_raw": "White",
+  "dates_of_birth_used": ["March 10, 1948"],
+  "nationality": "United States",
+  "field_offices": ["washingtondc"],
+  "suspects": null,
+  "age_range": null,
+  "possible_countries": ["IRN"],
+  "uid": "99ffed7830acba90db8a7198b9c53afd",
+  "ncic": null,
+  "complexion": null,
+  "reward_min": 5000000,
+  "path": "/wanted/kidnap/robert-a-levinson",
+  "hair": "gray",
+  "details": "<p>Information is being sought regarding a United States citizen Robert A. Levinson, a retired FBI Special Agent, who went missing during a business trip to Kish Island, Iran, on March 9, 2007. Levinson retired from the FBI in 1998 and worked as a private investigator following his retirement. Levinson traveled to Kish Island, Iran, on March 8, 2007, working on behalf of several large corporations, and his whereabouts, well-being and the circumstances surrounding his disappearance have been unknown since that time.</p>\r\n<p>\u00a0</p>",
+  "status": "na",
+  "height_max": 2330,
+  "possible_states": null,
+  "eyes": "blue",
+  "reward_max": -1,
+  "remarks": "<p>Levinson wears eyeglasses. He is believed to have lost a significant amount of weight, possibly 50 to 60 pounds.</p>",
+  "files": [{
+    "name": "English",
+    "url": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/download.pdf"
+  }, {
+    "name": "\u0628\u0647 \u0641\u0627\u0631\u0633\u06cc",
+    "url": "https://www.fbi.gov/wanted/kidnap/robert-a-levinson/levinsonfarsimay2020.pdf/@@download/file/levinsonfarsiMay2020.pdf"
+  }],
+  "reward_text": "The United States Government is offering a reward of up to $25,000,000 for information leading directly to the location, recovery and return of Robert A. Levinson.",
+  "height_min": 2330,
+  "@id": "https://api.fbi.gov/@wanted-person/99ffed7830acba90db8a7198b9c53afd"
+}
