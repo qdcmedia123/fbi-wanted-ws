@@ -4,8 +4,7 @@
 This project is setup with 
   -  Nodejs v14.15.0 and npm 6.14.8 with TypeScript
   -  Jest for testing 
-  -  Dependencies that is used in this project
-  -  Express, @sweettech123/common, 
+  -  Express
   -  @sweettech123/common
   -  @types/cookie-session
   -  @types/express
@@ -26,10 +25,11 @@ This project is setup with
   - Skaffold. See https://skaffold.dev/docs/install/
   - Node Nats Streaming
  
-## 1.2 Docker file is added the its services
+## 1.2 Docker file is added to its services
 
 ## 1.3 Kubernetes 
   - Deployment file is added  infra/k8s directory
+
 ## 1.4 Automation of local develpment workflow 
   - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
 
