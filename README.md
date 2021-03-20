@@ -20,8 +20,8 @@ This project is setup with
   -  typescript
 
 # Evnironment, Installation
-  - Nodejs, Docker, Kubernetes, 
-  - Minikube, Node Nats Streaming, 
+  - Nodejs, Docker, Kubernetes
+  - Minikube, Node Nats Streaming
   - Skaffold. See https://skaffold.dev/docs/install/
   - Node Nats Streaming
  
