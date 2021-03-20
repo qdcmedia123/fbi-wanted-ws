@@ -38,7 +38,7 @@ This project is setup with
  ``` bash 
  minikube addons enable ingress
 
- more Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+ #more Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
  # need to expose the node port to ingress inginx controller 
  kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
@@ -47,10 +47,11 @@ This project is setup with
     # When fetching the FBI Wantend list routes are protected
   
   ## Event Subscriptions
-    - When we are fetching something then its publishs event to kubernets cluster 
-    - Other services can subscribe to listen, for example we have fbi-auth service
-    - fbi-auth service listening the event from fbi service in the same way 
-    - We new user is registered then fbi services also get notified about that   - the user is added, all abstract typescript class which define which even -  - uses what kind of data is defined is common module and I have created npm - - packages so I can use in different services when Its needed.
+    # When we are fetching something then its publishs event to kubernets cluster 
+    # Other services can subscribe to listen, for example we have fbi-auth service
+    # fbi-auth service listening the event from fbi service in the same way 
+    # We new user is registered then fbi services also get notified about that   # the user is added, all abstract typescript class which define which even - # uses what kind of data is defined is common module and I have created npm 
+    # packages so I can use in different services when Its needed.
 
 ## How to run test
 ## install dependencies for fbi service
