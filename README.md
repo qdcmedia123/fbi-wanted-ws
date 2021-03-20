@@ -45,14 +45,21 @@ This project is setup with
 ## 1.5 How to run integration test 
   # after downloading the whole project please install the dependencies 
   ```
-  # add secret to the kubernetes cluster because its used in our testing 
-  kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf
-  # install dependencies for fbi service
+  ## install dependencies for fbi service
   cd fbi && npm install 
 
-  #install dependenceis for auth services
+  ## install dependenceis for auth services
   cd ../fbi-auth && npm install 
 
-  # After installation is done in both directory then in each directory
+  ## After installation is done in both directory then in each directory
   npm run test 
+
+  ## Security  
+    # When fetching the FBI Wantend list this route is protected
+  
+  ## Event Subscriptions
+    - When we are fetching something then its publishs event to kubernets cluste 
+    - Other services can subscribe to listen, for example we have fbi-auth service
+    - fbi-auth service listening the event from fbi service in the same way 
+    - We new user is registered then fbi services also get notified about that the user is added, all abstract typescript class which define which even uses what kind of data is defined is common module and I have created npm packages so I can use in different services when Its needed.
 
