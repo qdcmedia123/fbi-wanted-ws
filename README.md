@@ -1,1 +1,3 @@
-kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# fbi-wanted-ws
+fbi-wanted-ws
+
+kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
