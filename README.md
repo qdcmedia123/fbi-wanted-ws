@@ -43,10 +43,10 @@ This project is setup with
  kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
 
 ## 1.5 How to run integration test 
-  - after downloading the whole project please install the dependencies 
-  ``` bash
+  # after downloading the whole project please install the dependencies 
+  ```
   # add secret to the kubernetes cluster because its used in our testing 
-  kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
+  kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf
   # install dependencies for fbi service
   cd fbi && npm install 
 
