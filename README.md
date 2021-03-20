@@ -20,4 +20,16 @@ This project is setup with
   -  ts-node-dev
   -  typescript
 
+# Evnironment, Installation
+  - Nodejs, Docker, Kubernetes, 
+  - Minikube, Node Nats Streaming, 
+  - Skaffold. See https://skaffold.dev/docs/install/
+ 
+# 1.1 Web socket is created by NATs
+# 1.2 Docker file is added the its services for example (fbi, fbi_auth)
+# 1.3 Kubernetes 
+  - Deployment file is added  infr/k8s directory
+# 1.4 Automation of local develpment workflow 
+  - 
+
 kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
