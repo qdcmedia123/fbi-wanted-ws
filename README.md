@@ -33,7 +33,7 @@ This project is setup with
   - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
 
 ## Installation
- # If you are using docker in mac with minikube then, need to install following module 
+ ### If you are using docker in mac with minikube then, need to install following module 
  ``` bash 
  minikube addons enable ingress
 
