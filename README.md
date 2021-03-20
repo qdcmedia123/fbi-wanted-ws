@@ -25,15 +25,28 @@ This project is setup with
   - Minikube, Node Nats Streaming, 
   - Skaffold. See https://skaffold.dev/docs/install/
  
-# 1.1 Web socket is created by NATs
-# 1.2 Docker file is added the its services
-# 1.3 Kubernetes 
+## 1.1 Web socket is created by NATs
+## 1.2 Docker file is added the its services
+## 1.3 Kubernetes 
   - Deployment file is added  infr/k8s directory
-# 1.4 Automation of local develpment workflow 
+## 1.4 Automation of local develpment workflow 
   - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
-# 1.5 How to run integration test 
+
+## Installation
+ # If you are using docker in mac with minikube then, need to install following module 
+ ``` bash 
+ minikube addons enable ingress
+
+ more Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+
+ # need to expose the node port to ingress inginx controller 
+ kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
+
+## 1.5 How to run integration test 
   - after downloading the whole project please install the dependencies 
   ``` bash
+  # add secret to the kubernetes cluster because its used in our testing 
+  kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
   # install dependencies for fbi service
   cd fbi && npm install 
 
@@ -43,4 +56,3 @@ This project is setup with
   # After installation is done in both directory then in each directory
   npm run test 
 
-kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
