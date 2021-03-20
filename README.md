@@ -26,10 +26,21 @@ This project is setup with
   - Skaffold. See https://skaffold.dev/docs/install/
  
 # 1.1 Web socket is created by NATs
-# 1.2 Docker file is added the its services for example (fbi, fbi_auth)
+# 1.2 Docker file is added the its services
 # 1.3 Kubernetes 
   - Deployment file is added  infr/k8s directory
 # 1.4 Automation of local develpment workflow 
-  - 
+  - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
+# 1.5 How to run integration test 
+  - after downloading the whole project please install the dependencies 
+  ``` bash
+  # install dependencies for fbi service
+  cd fbi && npm install 
+
+  #install dependenceis for auth services
+  cd ../fbi-auth && npm install 
+
+  # After installation is done in both directory then in each directory
+  npm run test 
 
 kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf# 
