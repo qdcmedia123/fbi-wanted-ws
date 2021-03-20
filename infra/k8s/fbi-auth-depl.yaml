@@ -1,0 +1,47 @@
+# image: us.gcr.io/react-native-stripe-51bc5/fbi-auth
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fbi-auth-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fbi-auth
+  template:
+    metadata:
+      labels:
+        app: fbi-auth
+    spec:
+      containers:
+        - name: fbi-auth
+          image: bharatrose1/fbi-auth
+          env:
+            - name: MONGO_URI
+              value: 'mongodb://fbi-auth-mongo-srv:27017/fbi-auth'
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: fbi-wanted-ws
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fbi-auth-srv
+spec:
+  selector:
+    app: fbi-auth
+  ports:
+    - name: fbi-auth
+      protocol: TCP
+      port: 3000
+      targetPort: 3000

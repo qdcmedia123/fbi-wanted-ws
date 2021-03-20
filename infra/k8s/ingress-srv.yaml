@@ -1,0 +1,28 @@
+# apiVersion: extensions/v1beta1 If you use google cloud not miinikube
+# added - before -f
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-service
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/use-regex: 'true'
+spec:
+  rules:
+    - host: fbi.dev
+      http:
+        paths:
+          - path: /api/fbi/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: fbi-srv
+                port:
+                  number: 3000
+          - path: /api/users/?(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: fbi-auth-srv
+                port:
+                  number: 3000

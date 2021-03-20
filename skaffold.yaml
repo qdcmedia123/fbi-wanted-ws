@@ -1,0 +1,27 @@
+#- ./infra/k8s-dev/*
+apiVersion: skaffold/v1
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  local:
+    push: false
+  artifacts:
+      - image: bharatrose1/fbi
+        context: fbi
+        docker:
+          dockerfile: Dockerfile
+        sync:
+          manual:
+            - src: 'src/**/*.ts'
+              dest: .
+      - image: bharatrose1/fbi-auth
+        context: fbi-auth
+        docker:
+          dockerfile: Dockerfile
+        sync:
+          manual:
+            - src: 'src/**/*.ts'
+              dest: .

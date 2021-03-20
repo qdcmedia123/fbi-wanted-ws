@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fbi-depl
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fbi
+  template:
+    metadata:
+      labels:
+        app: fbi
+    spec:
+      containers:
+        - name: fbi
+          image: bharatrose1/fbi
+          env:
+            - name: NATS_CLIENT_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: NATS_URL
+              value: 'http://nats-srv:4222'
+            - name: NATS_CLUSTER_ID
+              value: fbi-wanted-ws
+            - name: JWT_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: jwt-secret
+                  key: JWT_KEY
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fbi-srv
+spec:
+  selector:
+    app: fbi
+  ports:
+    - name: fbi
+      protocol: TCP
+      port: 3000
+      targetPort: 3000
