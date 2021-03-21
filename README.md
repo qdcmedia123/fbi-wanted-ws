@@ -6,6 +6,7 @@
 - Skaffold, See https://skaffold.dev/docs/install/
 - Node Nats Streaming
 - MongoDB
+- REST
 
 ## Websocket API in NodeJS
 Node Nats Streaming has been used to create event based server(web socket), While fetching the FBI Wanted list, at the same time the api publish event called FetchedFBIWantedlist, other services can listen to that
@@ -74,7 +75,9 @@ https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Publi
 ```
 
 ## Security 
-When fetching the FBI Wanted list routes are protected, user need to be logged in to use the api 
+https://fbi.dev/api/fbi/list is publice but 
+https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
+
 
 ### Event subscriptions
 When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
@@ -100,7 +103,7 @@ Yes we do log, I am using simple console due to timeline, It is important to log
 - Database is down the communication with other microservice was unsuccessful
 - It can be anything in our application, in infrastructure etc
 
-There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
+There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event whenever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
 
 ### Persistent Caching 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider

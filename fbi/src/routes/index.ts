@@ -10,7 +10,6 @@ const router = express.Router();
 
 router.get(
   "/api/fbi/list/:page?/:field_offices?",
-  requireAuth,
   async (req: Request, res: Response) => {
     let { page, field_offices } = req.params;
     if (typeof page !== "undefined") {
