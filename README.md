@@ -32,8 +32,9 @@ Deployment file has been added to infra/k8s directory
     # When we are fetching something then its publishs event to kubernets cluster 
     # Other services can subscribe to listen, for example we have fbi-auth service
     # fbi-auth service listening the event from fbi service in the same way 
-    # We new user is registered then fbi services also get notified about that   # the user is added, all abstract typescript class which define which even - # uses what kind of data is defined is common module and I have created npm 
-    # packages so I can use in different services when Its needed.
+    # When new user is registered then fbi services also get notified about that   
+    # the user is added, all abstract typescript class which define inside common folder 
+    # can be use in different services, to know the subject, event type, event data type etc
 
 ## How to run test
 ## install dependencies for fbi service
@@ -46,7 +47,7 @@ Deployment file has been added to infra/k8s directory
   npm run test 
   ```
 ### Scaling our application 
-  #### In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
+In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
 
 ### Presistent Cahing 
 We can use Redis, Memcached to store our caching https://www.npmjs.com/package/redis
