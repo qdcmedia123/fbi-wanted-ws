@@ -12,8 +12,10 @@ fbi/Dockerfile, fbi_auth/Dockerfile
 Deployment file has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
- When we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too, We can do it manually as well
- - Build the image, Push to docker hub and then again kubectl apply -f {deployment_file_name.yaml}
+ When we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too, you can do it manually as well
+ - Build the image, 
+ - Push to docker hub 
+ - kubectl apply -f {deployment_file_name.yaml}
 
 ## Installation
  ### For minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
@@ -49,11 +51,8 @@ Deployment file has been added to infra/k8s directory
 ### Scaling our application 
 In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
 
-### Presistent Cahing 
-We can use Redis, Memcached to store our caching https://www.npmjs.com/package/redis
-
 ### Logging 
-Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
+Yes we do log, I am using simple console due to timeline, It is important to log in any application for example it can be different reason, for example 
     • Any kind of Debug, Info, Warning, Error
     • If NATS has some issue for the connection, 
     • Some keys has been missed in Kubernetes cluster for example 
@@ -66,16 +65,18 @@ Yes we do log, but right know due to timeline I was not be able to implement log
 There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
 
 ### Persistent Caching 
-I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services
+I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
       
 ### We can imporve
-- Utilize all CPU cores
 - Delegate gzip, SSL to a reverse proxy 
 - Documentation using Swagger.io
 - Enable brute force protection
 - Cluster monitoring tools
 - Resource Management
 - Keep evaluating the state of application 
+- Brute Force Attack Prevention, Too many request
+- Avoid DOS attacks by explicitly setting when a process should crash
+- etc
 
 
 ### Caching 
