@@ -160,3 +160,29 @@ What changes do we need to make to run multiple replicas in our Kubernetes clust
 # 8 Other
 
 Anything else you would suggest to improve the application, developer experience, build pipeline, etc. ?
+
+## Caching 
+Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to the permanent catch , so that we will not request to the server each time as per user request to our backend server,
+
+Normally how we cache the data, for example I have list of wanted list and I have a lot of query such as get by office, locations, title it can be anything which is available in our each item attributes.
+
+When I have access of full data then for example I have 10000 records in total then, this data become source of caching and rest of the query I will have to do from my script for example getting 10 first item from the array 
+
+const cached = data;
+const getItem = data.slice(skip, limit)  // SELCT * FROM wanted list  skip(init) limit(init)
+// In the same way we do in SQL 
+User can do query to our data in different way therefore we are not storing all ways but we are storing source of data and query on the data which is available through the cache
+
+But the current api 
+https://api.fbi.gov/wanted/v1/list
+
+and designing caching system in this system require more time.
+
+Caching system work with for example database or any other source where data get permanently save and at the same time there is different kind of cache policy for example Write through cache, Write around cache, Write back cache
+
+but what I found is,  in current situation and the time frame all our query can not perform until and unless I spent more time on it in current situation
+
+In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application 
+
+## Request 
+Hope I will have opportunity to discuss how this application can be improved and more things which has not been done, How they can be accomplished in more effective way 

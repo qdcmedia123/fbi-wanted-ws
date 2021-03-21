@@ -22,6 +22,8 @@ spec:
                   fieldPath: metadata.name
             - name: NATS_URL
               value: 'http://nats-srv:4222'
+            - name: REDISH_HOST
+              value: redis-srv
             - name: NATS_CLUSTER_ID
               value: fbi-wanted-ws
             - name: JWT_KEY

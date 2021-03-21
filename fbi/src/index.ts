@@ -4,6 +4,7 @@
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
 import {UserCreatedListender} from './events/listeners/user-created-listener';
+import redis from 'redis';
 
 
 const start = async () => {
@@ -34,6 +35,7 @@ const start = async () => {
   } catch (err) {
     console.error(err);
   }
+
   app.listen(process.env.PORT || 3000, () => {
     console.info(`App running on port ${process.env.PORT || 3000}`);
   });

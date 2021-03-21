@@ -22,25 +22,24 @@ router.get(
 
     field_offices = field_offices ?? "";
     page = page ?? 1;
-
+    // Try to fetch from redis server first
     try {
-         const response = await axios.get<FBIListResponse>(
+      const response = await axios.get<FBIListResponse>(
         `${endPoints.FBIWantedList}?page=${page}&field_offices=${field_offices}`
       );
 
       try {
-          // Publish the event that list has been fetched
-          new FBIWantedListFetched(natsWrapper.client).publish({
+        // Publish the event that list has been fetched
+        new FBIWantedListFetched(natsWrapper.client).publish({
           total: response.data.total,
           items: response.data.items,
         });
       } catch (error) {
-          console.log(error);
+        console.log(error);
       }
-
-          return res.send(response.data);
+      return res.send(response.data);
     } catch (err) {
-          throw new Error(err);
+      throw new Error(err);
     }
   }
 );
@@ -51,7 +50,7 @@ router.get(
   async (req: Request, res: Response) => {
     let { uid } = req.params;
     if (typeof uid === "undefined") {
-      throw new BadRequestError('User id required');
+      throw new BadRequestError("User id required");
     }
     try {
       const response = await axios.get(`${endPoints.FBIWantedListById}/${uid}`);
@@ -61,6 +60,5 @@ router.get(
     }
   }
 );
-
 
 export { router as indexFBIRouter };
