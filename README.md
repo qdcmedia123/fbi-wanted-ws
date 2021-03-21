@@ -66,7 +66,7 @@ sudo gedit /etc/hosts
 
 # Now you can access 
 URL                                 METHOD     Payload                                 Description 
-https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password"} 
+https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password": "password"} 
 https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Published to other services
 ```
 
