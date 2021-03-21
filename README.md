@@ -43,6 +43,9 @@ Deployment file has been added to infra/k8s directory
 
   ## can be run in both folder fbi and fbi-auth 
   npm run test 
+
+  # Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
+  skaffold dev 
   ```
 
 ## Security  
