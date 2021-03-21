@@ -25,11 +25,13 @@ When we run skaffold dev then if we change any thing in our local machine file t
 ## Installation
 For minikube need to enable ingress, If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
 ``` bash 
+# If you are using minikube in mac then start minikube with hyperkit driver 
+minikube start --vm-driver=hyperkit
+# Enable ingress 
 minikube addons enable ingress
-
 # More Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
-# need to expose the node port to ingress inginx controller 
+# Need to expose the node port to ingress inginx controller 
 kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
 
 # add secret to our cluster, its used in auth service and in testing too
