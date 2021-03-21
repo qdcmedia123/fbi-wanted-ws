@@ -1,4 +1,3 @@
-
 # Evnironment, Installation
   - Nodejs with TypeScript, Jest, 
   - Docker, 
@@ -42,11 +41,11 @@ Deployment file has been added to infra/k8s directory
   npm run test 
   ```
 
- ## Security  
-    # When fetching the FBI Wantend list routes are protected, user need to be logged in to use the api 
+## Security  
+When fetching the FBI Wantend list routes are protected, user need to be logged in to use the api 
 
 ### Event subscriptions
- When we are fetching something then its publishs event to kubernets cluster 
+When we are fetching something then its publishs event to kubernets cluster 
     # Other services can subscribe to listen, for example we have fbi-auth service
     # fbi-auth service listening the event from fbi service in the same way 
     # When new user is registered then fbi services also get notified about that   
