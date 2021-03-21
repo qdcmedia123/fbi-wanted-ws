@@ -32,7 +32,9 @@ minikube addons enable ingress
 # need to expose the node port to ingress inginx controller 
 kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
 
-## How to run test
+# add secret to our cluster, its used in auth service and in testing too
+kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf
+
 ## install dependencies for fbi service
 cd fbi && npm install 
 
