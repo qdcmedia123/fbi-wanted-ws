@@ -1,9 +1,12 @@
 
 # Evnironment, Installation
-  - Nodejs, Docker, Kubernetes
-  - Minikube, Node Nats Streaming
+  - Nodejs with TypeScript, Jest, 
+  - Docker, 
+  - Kubernetes
+  - Minikube
   - Skaffold. See https://skaffold.dev/docs/install/
   - Node Nats Streaming
+  - MongoDB
  
 ## 1.2 Docker file is added to its services
 fbi/Dockerfile, fbi_auth/Dockerfile
@@ -18,28 +21,18 @@ Deployment file has been added to infra/k8s directory
  - kubectl apply -f {deployment_file_name.yaml}
 
 ## Installation
- ### For minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
+ For minikube need to enable ingress, If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
+ 
  ``` bash 
  minikube addons enable ingress
 
- #more Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
+ # More Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
  # need to expose the node port to ingress inginx controller 
  kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
 
-  ## Security  
-    # When fetching the FBI Wantend list routes are protected
-  
-  ## Event Subscriptions
-    # When we are fetching something then its publishs event to kubernets cluster 
-    # Other services can subscribe to listen, for example we have fbi-auth service
-    # fbi-auth service listening the event from fbi service in the same way 
-    # When new user is registered then fbi services also get notified about that   
-    # the user is added, all abstract typescript class which define inside common folder 
-    # can be use in different services, to know the subject, event type, event data type etc
-
-## How to run test
-## install dependencies for fbi service
+ ## How to run test
+ ## install dependencies for fbi service
   cd fbi && npm install 
 
   ## install dependenceis for auth services
@@ -48,6 +41,19 @@ Deployment file has been added to infra/k8s directory
   ## can be run in both folder fbi and fbi-auth 
   npm run test 
   ```
+
+ ## Security  
+    # When fetching the FBI Wantend list routes are protected, user need to be logged in to use the api 
+
+### Event subscriptions
+ When we are fetching something then its publishs event to kubernets cluster 
+    # Other services can subscribe to listen, for example we have fbi-auth service
+    # fbi-auth service listening the event from fbi service in the same way 
+    # When new user is registered then fbi services also get notified about that   
+    # the user is added, all abstract typescript class which define inside common folder 
+    # can be use in different services, to know the subject, event type, event data type etc
+
+
 ### Scaling our application 
 In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
 
@@ -60,7 +66,7 @@ Yes we do log, I am using simple console due to timeline, It is important to log
     • minibike may be stopped to work due to out of store in container, storage might be out of capacity, 
     • Loading Balancing, Store Management, Application 
     • database is down the communication with other microservice was unsuccessful
-    • It can be anything in our  application, in infrastructure  etc
+    • It can be anything in our application, in infrastructure  etc
 
 There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
 
