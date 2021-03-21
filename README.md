@@ -1,6 +1,6 @@
 # Evnironment, Installation
   - Nodejs with TypeScript, Jest
-  - Docker, 
+  - Docker
   - Kubernetes, kubectl 
   - Minikube
   - Skaffold, See https://skaffold.dev/docs/install/
@@ -8,7 +8,7 @@
   - MongoDB
 
 ## Websocket API in NodeJS
-Node Nats Streaming has been used to create event, While fething the FBI Wanted list, at the same time the api publish a event called FetchedFBIWantedlist, other services can listen to that
+Node Nats Streaming has been used to create event server, While fething the FBI Wanted list, at the same time the api publish a event called FetchedFBIWantedlist, other services can listen to that
 event with data structure placed in listener folder of each service
  
 ## 1.2 Docker file is added to its services
@@ -73,18 +73,8 @@ There is different way of logging in Nodejs, Kubernetes application for example 
 ### Persistent Caching 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
       
-### We can imporve
-- Delegate gzip, SSL to a reverse proxy 
-- Documentation using Swagger.io
-- Enable brute force protection
-- Cluster monitoring tools
-- Resource Management
-- Keep evaluating the state of application 
-- Brute Force Attack Prevention, Too many request
-- Avoid DOS attacks by explicitly setting when a process should crash
-- etc
-
 ### Caching 
+
 Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to the permanent catch , so that we will not request to the server each time as peruser request to our backend server,
 
 Normally how we cache the data, for example I have list of wanted list and I have a lot of query such as get by office, locations, title it can be anything which is available in our each item attributes.
@@ -106,6 +96,17 @@ Caching system work with for example database or any other source where data get
 but what I found is,  in current situation and the time frame all our query can not perform until and unless I spent more time on it in current situation
 
 In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application 
+
+### We can imporve
+- Delegate gzip, SSL to a reverse proxy 
+- Documentation using Swagger.io
+- Enable brute force protection
+- Cluster monitoring tools
+- Resource Management
+- Keep evaluating the state of application 
+- Brute Force Attack Prevention, Too many request
+- Avoid DOS attacks by explicitly setting when a process should crash
+- etc
 
 ### Request 
 Hope I will have opportunity to discuss how this application can be improved and more things which has not been done, How they can be accomplished
