@@ -1,24 +1,4 @@
 
-# Introduction
-
-This project is setup with 
-  -  Nodejs v14.15.0 and npm 6.14.8 with TypeScript
-  -  Jest for testing 
-  -  Express
-  -  @sweettech123/common
-  -  @types/cookie-session
-  -  @types/express
-  -  @types/jsonwebtoken
-  -  @types/mongoose
-  -  cookie-session
-  -  express
-  -  express-async-errors
-  -  express-validator
-  -  jsonwebtoken
-  -  mongoose
-  -  ts-node-dev
-  -  typescript
-
 # Evnironment, Installation
   - Nodejs, Docker, Kubernetes
   - Minikube, Node Nats Streaming
