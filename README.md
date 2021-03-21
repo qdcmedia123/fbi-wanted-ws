@@ -43,14 +43,14 @@
   ## can be run in both folder fbi and fbi-auth 
   npm run test 
   ```
-## Scaling our application 
-  ### In k8s folder in our deployment file for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consum more resources too.
+### Scaling our application 
+  #### In k8s folder in our deployment file for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consum more resources too.
 
-## Presistent Cahing 
- ### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis, Due to deadlines I could not be able to implement it
+### Presistent Cahing 
+ #### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis, Due to deadlines I could not be able to implement it
 
-## Logging 
-### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
+### Logging 
+#### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
     • Any kind of Debug, Info, Warning, Error
     • If NATS has some issue for the connection, 
     • Some keys has been missed in Kubernetes cluster for example 
