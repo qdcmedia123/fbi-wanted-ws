@@ -52,11 +52,22 @@ npm run test
 
 # Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
 skaffold dev 
-```
+``` 
 ## Would like to tesk as a real client from postman
-```
+``` bash
 # Find the IP Address of minikube 
+minikube ip #192.168.64.10
 
+# Open host file 
+sudo gedit /etc/hosts
+
+# add your minikube ip and one random domain name fbi.dev to host file
+192.168.64.10 fbi.dev
+
+# Now you can access 
+URL                                 METHOD     Payload                                 Description 
+https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password"} 
+https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Published to other services
 ```
 
 ## Security 
