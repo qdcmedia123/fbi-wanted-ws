@@ -66,8 +66,8 @@ Yes we do log, I am using simple console due to timeline, It is important to log
 - Some keys has been missed in Kubernetes cluster for example 
 - NATS_CLIENT_ID or JWT_KEY is undefined
 - Minibike may be stopped to work due to out of store in container, storage might   be out of capacity, 
-- Loading Balancing, Store Management, Application 
-- database is down the communication with other microservice was unsuccessful
+- Issue with Loading Balancing, Store Management, Application 
+- Database is down the communication with other microservice was unsuccessful
 - It can be anything in our application, in infrastructure etc
 
 There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
@@ -85,18 +85,22 @@ When I have access of full data then for example I have 10000 records in total t
 const cached = data;
 const getItem = data.slice(skip, limit) // SELCT * FROM wanted list skip(init) limit(init)
 // In the same way we do in SQL 
+
+What is mean to say is in current scenario caching system will not be more effective, efficient, reliable and more time consuming and will not provide better result unless we have complete data source
+
 User can do query to our data in different way therefore we are not storing all ways but we are storing source of data and query on the data which is available through the cache
 
-But the current api 
+But the current api providing each page item
 https://api.fbi.gov/wanted/v1/list
 
-and designing caching system in this system require more time.
+and designing caching system in this system require more time to make it work in complete scenario
+
 
 Caching system work with for example database or any other source where data get permanently save and at the same time there is different kind of cache policy for example Write through cache, Write around cache, Write back cache
 
 but what I found is, in current situation and the time frame all our query can not perform until and unless I spent more time on it in current situation
 
-In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application 
+In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application
 
 ### We can imporve
 - Delegate gzip, SSL to a reverse proxy 
