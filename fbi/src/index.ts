@@ -3,9 +3,7 @@
  */
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
-import {UserCreatedListender} from './events/listeners/user-created-listener';
-import redis from 'redis';
-
+import { UserCreatedListender } from "./events/listeners/user-created-listener";
 
 const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
@@ -29,8 +27,8 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close());
     process.on("SIGTERM", () => natsWrapper.client.close());
-    // Listening events 
-    // Listen to user created event 
+    // Listening events
+    // Listen to user created event
     new UserCreatedListender(natsWrapper.client).listen();
   } catch (err) {
     console.error(err);

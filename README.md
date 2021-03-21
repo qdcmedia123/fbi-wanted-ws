@@ -17,16 +17,16 @@ fbi/Dockerfile, fbi_auth/Dockerfile
 Deployment file has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
-When we run skaffold dev then if we change any thing in our local machine file then It builds, pushes to docker hub and push to kubernets cluster too, you can do it manually as well
+When we run skaffold dev then if we change any thing in our local machine files then It builds, pushes to docker hub and apply deployment files, you can do it manually as well
 - Build the image, 
 - Push to docker hub 
 - kubectl apply -f {deployment_file_name.yaml}
 
 ## Installation
-For minikube need to enable ingress, If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
 ``` bash 
 # If you are using minikube in mac then start minikube with hyperkit driver 
 minikube start --vm-driver=hyperkit
+
 # Enable ingress 
 minikube addons enable ingress
 # More Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
@@ -37,13 +37,13 @@ kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodeP
 # add secret to our cluster, its used in auth service and in testing too
 kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf
 
-## install dependencies for fbi service
+# install dependencies for fbi service
 cd fbi && npm install 
 
-## install dependencies for auth services
+# install dependencies for auth services
 cd ../fbi-auth && npm install 
 
-## can be run in both folder fbi and fbi-auth, this is test in local environment, when we push to GitHub or GitLab we will have our git hub action where all test will run there too
+# can be run in both folder fbi and fbi-auth, this is test in local environment, when we push to GitHub or GitLab we will have our git hub action where all test will run there too
 npm run test 
 
 # Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
@@ -61,14 +61,14 @@ In k8s folder in deployment files for each configuration file if we increase the
 
 ### Logging 
 Yes we do log, I am using simple console due to timeline, It is important to log in any application for example it can be different reason, for example 
-• Any kind of Debug, Info, Warning, Error
-• If NATS has some issue for the connection, 
-• Some keys has been missed in Kubernetes cluster for example 
-• NATS_CLIENT_ID or JWT_KEY is undefined
-• minibike may be stopped to work due to out of store in container, storage might be out of capacity, 
-• Loading Balancing, Store Management, Application 
-• database is down the communication with other microservice was unsuccessful
-• It can be anything in our application, in infrastructure etc
+- Any kind of Debug, Info, Warning, Error
+- If NATS has some issue for the connection, 
+- Some keys has been missed in Kubernetes cluster for example 
+- NATS_CLIENT_ID or JWT_KEY is undefined
+- Minibike may be stopped to work due to out of store in container, storage might   be out of capacity, 
+- Loading Balancing, Store Management, Application 
+- database is down the communication with other microservice was unsuccessful
+- It can be anything in our application, in infrastructure etc
 
 There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
 
