@@ -14,7 +14,7 @@
   - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
 
 ## Installation
- ### If you are using docker in mac with minikube then, need to install following module 
+ ### for the minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
  ``` bash 
  minikube addons enable ingress
 
