@@ -6,12 +6,14 @@
   - Node Nats Streaming
  
 ## 1.2 Docker file is added to its services
+fbi/Dockerfile, fbi_auth/Dockerfile
 
 ## 1.3 Kubernetes 
 Deployment file has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
- when we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too
+ When we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too, We can do it manually as well
+ - Build the image, Push to docker hub and then again kubectl apply -f {deployment_file_name.yaml}
 
 ## Installation
  ### For minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
@@ -47,10 +49,10 @@ Deployment file has been added to infra/k8s directory
   #### In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
 
 ### Presistent Cahing 
- #### We can use Redis, Memcached to store our caching https://www.npmjs.com/package/redis
+We can use Redis, Memcached to store our caching https://www.npmjs.com/package/redis
 
 ### Logging 
-#### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
+Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
     • Any kind of Debug, Info, Warning, Error
     • If NATS has some issue for the connection, 
     • Some keys has been missed in Kubernetes cluster for example 
