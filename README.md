@@ -8,13 +8,13 @@
 ## 1.2 Docker file is added to its services
 
 ## 1.3 Kubernetes 
-  - Deployment file has been added to infra/k8s directory
+Deployment file has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
-  - when we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too
+ when we run skaffold dev then if we change any thing in our local machine file then It builds, pushs to docker hub and push to kubernets cluster too
 
 ## Installation
- ### for the minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
+ ### For minikube need to enable ingress If we are in local environment, Clouds have their own deployment configuration file available for ingress inginx
  ``` bash 
  minikube addons enable ingress
 
