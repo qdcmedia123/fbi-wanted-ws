@@ -24,11 +24,15 @@ When we run skaffold dev then if we change any thing in our local machine files 
 
 ## Installation
 ``` bash 
+# install skaffold 
+https://skaffold.dev/docs/install/
+
 # If you are using minikube in mac then start minikube with hyperkit driver 
 minikube start --vm-driver=hyperkit
 
 # Enable ingress 
 minikube addons enable ingress
+
 # More Details: https://kubernetes.io/docs/tasks/access-application-cluster/ingress-minikube/
 
 # Need to expose the node port to ingress inginx controller 
@@ -48,6 +52,11 @@ npm run test
 
 # Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
 skaffold dev 
+```
+## Would like to tesk as a real client from postman
+```
+# Find the IP Address of minikube 
+
 ```
 
 ## Security 
@@ -93,7 +102,7 @@ User can do query to our data in different way therefore we are not storing all 
 But the current api providing each page item
 https://api.fbi.gov/wanted/v1/list
 
-and designing caching system in this system require more time to make it work in complete scenario
+and designing caching system in this system require more time to make it work in complete scenario such as pagination, search by different attributes etc
 
 
 Caching system work with for example database or any other source where data get permanently save and at the same time there is different kind of cache policy for example Write through cache, Write around cache, Write back cache
