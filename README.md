@@ -144,6 +144,7 @@ In real world its not more efficient to caching each user query to our caching s
 - Keep evaluating the state of application 
 - Brute Force Attack Prevention, Too many request
 - Avoid DOS attacks by explicitly setting when a process should crash
+- While Developing pipeline creating github action and running testing and apply all Kubernetes setting from github
 - etc
 
 ### Request 

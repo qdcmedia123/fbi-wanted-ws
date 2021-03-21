@@ -22,6 +22,7 @@ const start = async () => {
       process.env.NATS_URL
     );
     natsWrapper.client.on("close", () => {
+      // Next version we will create better logging system
       console.info("NATS connection closed!");
       process.exit();
     });
@@ -35,6 +36,7 @@ const start = async () => {
   }
 
   app.listen(process.env.PORT || 3000, () => {
+    // Next version we will create better logging system
     console.info(`App running on port ${process.env.PORT || 3000}`);
   });
 };

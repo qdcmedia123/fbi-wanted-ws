@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 import { app } from "./app";
 import { natsWrapper } from "./nats-wrapper";
 import {FBIWantedListListener} from './events/listeners/fbi-wanted-list-listener';
+
+// Next version we will create better logging system
+
 const start = async () => {
   if (!process.env.NATS_CLIENT_ID) {
     throw new Error("NATS_CLIENT_ID must be defined");
@@ -24,9 +27,6 @@ const start = async () => {
     });
     process.on("SIGINT", () => natsWrapper.client.close());
     process.on("SIGTERM", () => natsWrapper.client.close());
-
-    // Listen event published by another services 
-
     // Listen to FBI Fetch List Event 
     new FBIWantedListListener(natsWrapper.client).listen();
   } catch (err) {
