@@ -47,7 +47,7 @@
   #### In k8s folder in our deployment file for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consum more resources too.
 
 ### Presistent Cahing 
- #### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis, Due to deadlines I could not be able to implement it
+ #### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis
 
 ### Logging 
 #### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
@@ -60,5 +60,5 @@
     • database is down the communication with other microservice was unsuccessful
     • It can be anything in our  application, in infrastructure  etc
 
-There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything  we need to log  from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
+There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
       
