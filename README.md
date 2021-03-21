@@ -42,7 +42,7 @@
 
   ## can be run in both folder fbi and fbi-auth 
   npm run test 
-  
+  ```
 ## Scaling our application 
   ### In k8s folder in our deployment file for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consum more resources too.
 
