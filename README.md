@@ -1,11 +1,15 @@
 # Evnironment, Installation
-  - Nodejs with TypeScript, Jest, 
+  - Nodejs with TypeScript, Jest
   - Docker, 
-  - Kubernetes
+  - Kubernetes, kubectl 
   - Minikube
-  - Skaffold. See https://skaffold.dev/docs/install/
+  - Skaffold, See https://skaffold.dev/docs/install/
   - Node Nats Streaming
   - MongoDB
+
+## Websocket API in NodeJS
+Node Nats Streaming has been used to create event, While fething the FBI Wanted list, at the same time the api publish a event called FetchedFBIWantedlist, other services can listen to that
+event with data structure placed in listener folder of each service
  
 ## 1.2 Docker file is added to its services
 fbi/Dockerfile, fbi_auth/Dockerfile
@@ -45,13 +49,7 @@ Deployment file has been added to infra/k8s directory
 When fetching the FBI Wantend list routes are protected, user need to be logged in to use the api 
 
 ### Event subscriptions
-When we are fetching something then its publishs event to kubernets cluster 
-    # Other services can subscribe to listen, for example we have fbi-auth service
-    # fbi-auth service listening the event from fbi service in the same way 
-    # When new user is registered then fbi services also get notified about that   
-    # the user is added, all abstract typescript class which define inside common folder 
-    # can be use in different services, to know the subject, event type, event data type etc
-
+When we are fetching FBI Wanted List then its publishs event to kubernetes cluster Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way, When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
 
 ### Scaling our application 
 In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
@@ -82,7 +80,6 @@ I can integrate Velero.io to our application which provides safely backup and re
 - Brute Force Attack Prevention, Too many request
 - Avoid DOS attacks by explicitly setting when a process should crash
 - etc
-
 
 ### Caching 
 Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to the permanent catch , so that we will not request to the server each time as peruser request to our backend server,
