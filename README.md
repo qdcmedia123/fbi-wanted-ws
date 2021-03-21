@@ -65,7 +65,7 @@ There is different way of logging in Nodejs, Kubernetes application for example 
 ### Persistent Caching 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services
       
-### We can imporve, Its all about time now
+### We can imporve
 - Utilize all CPU cores
 - Delegate gzip, SSL to a reverse proxy 
 - Documentation using Swagger.io
