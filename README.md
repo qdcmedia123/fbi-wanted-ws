@@ -48,3 +48,17 @@
 
 ## Presistent Cahing 
  ### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis, Due to deadlines I could not be able to implement it
+
+## Logging 
+### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
+    • Any kind of Debug, Info, Warning, Error
+    • If NATS has some issue for the connection, 
+    • Some keys has been missed in Kubernetes cluster for example 
+    • NATS_CLIENT_ID or JWT_KEY is undefined
+    • minibike may be stopped to work due to out of store in container, storage might be out of capacity, 
+    • Loading Balancing, Store Management, Application 
+    • database is down the communication with other microservice was unsuccessful
+    • It can be anything in our  application, in infrastructure  etc
+
+There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything  we need to log  from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
+      
