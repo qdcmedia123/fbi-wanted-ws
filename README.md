@@ -65,9 +65,9 @@ sudo gedit /etc/hosts
 # add your minikube ip and one random domain name fbi.dev to host file
 192.168.64.10 fbi.dev
 
-#In the settings, turn off the SSL certificate verification option in postman
+# In the settings, turn off the SSL certificate verification option in postman
 
-#We have many routes, You should be able to access some of them
+# We have many routes, You should be able to access some of them
 URL                                 METHOD     Payload                                  
 https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password": "password"} 
 https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Published to other services
@@ -77,10 +77,17 @@ https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Publi
 When fetching the FBI Wanted list routes are protected, user need to be logged in to use the api 
 
 ### Event subscriptions
-When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way, When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
+When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
 
 ### Scaling our application 
 In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
+
+``` bash
+#spec:
+#  replicas: 1
+#  selector:
+
+```
 
 ### Logging 
 Yes we do log, I am using simple console due to timeline, It is important to log in any application for example it can be different reason, for example 
