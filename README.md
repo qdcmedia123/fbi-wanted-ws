@@ -1,17 +1,18 @@
 # Evnironment, Installation
 - Nodejs with TypeScript, Jest
 - Docker
-- Kubernetes, kubectl 
+- Kubernetes
 - Minikube
 - Skaffold, See https://skaffold.dev/docs/install/
 - Node Nats Streaming
 - MongoDB
 
 ## Websocket API in NodeJS
-Node Nats Streaming has been used to create event server, While fetching the FBI Wanted list, at the same time the api publish event called FetchedFBIWantedlist, other services can listen to that
+Node Nats Streaming has been used to create event based server(web socket), While fetching the FBI Wanted list, at the same time the api publish event called FetchedFBIWantedlist, other services can listen to that
 event with data structure placed in listener folder of each service
+
 ## 1.2 Docker file is added to its services
-fbi/Dockerfile, fbi_auth/Dockerfile
+Docker file has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 
 ## 1.3 Kubernetes 
 Deployment file has been added to infra/k8s directory
@@ -53,7 +54,7 @@ npm run test
 # Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
 skaffold dev 
 ``` 
-## Would like to tesk as a real client from postman
+## Would like to test as a real client from postman
 ``` bash
 # Find the IP Address of minikube 
 minikube ip #192.168.64.10
@@ -64,8 +65,10 @@ sudo gedit /etc/hosts
 # add your minikube ip and one random domain name fbi.dev to host file
 192.168.64.10 fbi.dev
 
-# Now you can access 
-URL                                 METHOD     Payload                                 Description 
+#In the settings, turn off the SSL certificate verification option in postman
+
+#We have many routes, You should be able to access some of them
+URL                                 METHOD     Payload                                  
 https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password": "password"} 
 https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Published to other services
 ```
