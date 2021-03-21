@@ -8,7 +8,7 @@
 ## 1.2 Docker file is added to its services
 
 ## 1.3 Kubernetes 
-  - Deployment file is added  infra/k8s directory
+  - Deployment file has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
   - when we run skaffold dev then if we change any thing in our local machine any file then It build, push to docker hub and push to kubernets cluster too
@@ -44,10 +44,10 @@
   npm run test 
   ```
 ### Scaling our application 
-  #### In k8s folder in our deployment file for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consum more resources too.
+  #### In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
 
 ### Presistent Cahing 
- #### We can use Redis, Memchacned to store our cahcing https://www.npmjs.com/package/redis
+ #### We can use Redis, Memcached to store our caching https://www.npmjs.com/package/redis
 
 ### Logging 
 #### Yes we do log, but right know due to timeline I was not be able to implement logging rather I am using simple console, It is important to log in any application for example in current circumstances 
@@ -61,4 +61,7 @@
     • It can be anything in our  application, in infrastructure  etc
 
 There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event when ever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
+
+### Persistent Caching 
+### I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services
       
