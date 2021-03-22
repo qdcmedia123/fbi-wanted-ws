@@ -1,5 +1,5 @@
 
-# Evnironment, Installation
+# Installation
 - Nodejs with TypeScript, Jest
 - Docker
 - Kubernetes
