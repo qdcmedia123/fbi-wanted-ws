@@ -45,7 +45,14 @@ it('Throw 400 error if wanted list id is not found', async() => {
   .expect(400);
 });
 
-it('Fetch the FBI Wanted list individual item list if id is valid', async() => {
+it('Throw 401 error while fetching data by uid and no auth is provided', async() => {
+  await request(app)
+  .get("/api/fbi/fbiById/2978c2dee66b4a10a4b3030a00aa7db7")
+  .send()
+  .expect(401);
+});
+
+it('Fetch the FBI Wanted list individual item by uid', async() => {
   const response = await request(app)
   .get("/api/fbi/fbiById/2978c2dee66b4a10a4b3030a00aa7db7")
   .set("Cookie", global.signin())
