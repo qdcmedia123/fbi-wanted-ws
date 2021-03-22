@@ -114,14 +114,18 @@ I can integrate Velero.io to our application which provides safely backup and re
 ### Caching 
 Lets say for example I would like to get second page from the db and each page should be 20 item and office = ’miami’ SQL Query will be something like this 
 
+``` bash 
 SELECT Field_name from table where office = ’Miami’ limit skip limit 
+```
 
 In the same way If I do query from our cache then query could be something like this 
 
+``` bash 
 const data = cachedData;
 const query = data.filter(function(item){
   return item.office === ’miami’
 }).slice(skip, limit);
+```
 
 Existing api does not provide complete data  https://www.fbi.gov/wanted/api, If I have api where I can
 get 967 items at once then It would be more effective, extendable, functional, consume less resource.
