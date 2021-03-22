@@ -1,5 +1,5 @@
 
-# Installation
+# Environments 
 - Nodejs with TypeScript, Jest
 - Docker
 - Kubernetes
