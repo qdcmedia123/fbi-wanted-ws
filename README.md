@@ -109,17 +109,9 @@ There is different way of logging in Nodejs, Kubernetes application for example 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
 
 ### Caching 
-Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to permanent catch ,so that we will not request to the server each time as peruser request to our backend server,
+Lets say for example I would like to get second page from the db and each page should be 20 item and office = ’miami’ SQL Query will be something like this 
 
-Lets say 
-
-Normally how we cache the data, for example I have list of wanted list and I have a lot of query such as get by office, locations, title it can be anything which is available in our each item attributes.
-
-When I have access of full data then for example I have 10000 records in total then, this data become source of caching and rest of the query I will have to do from my script for example getting 10 first item from the array with office in oslo
-
-let cached = data;
-let getItem = data.slice(skip, limit) // SELCT * FROM wanted list skip(init) limit(init)
-// In the same way we do in SQL 
+SELECT Field_name from table where office = ’Miami’ limit skip limit 
 
 In the same way If I do query from our cache then query could be something like this 
 
@@ -128,20 +120,11 @@ const query = data.filter(function(item){
   return item.office === ’miami’
 }).slice(skip, limit);
 
-What is mean to say is in current scenario caching system will not be more effective, efficient, reliable and more time consuming and will not provide better result unless we have complete data source
+Existing api does not provide complete data  https://www.fbi.gov/wanted/api
 
-User can do query to our data in different way therefore we are not storing all ways but we are storing source of data and query on the data which is available through the cache
+I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, resuable, can handle different user query and for large data we will have to store large number of query in chacned.
 
-But the current api providing each page item
-
-
-and designing caching system in this system require more time to make it work in complete scenario such as pagination, search by different attributes etc
-
-Caching system work with for example database or any other source where data get permanently save and at the same time there is different kind of cache policy for example Write through cache, Write around cache, Write back cache
-
-but what I found is, in current situation and the time frame all our query can not perform until and unless I spent more time on it
-
-In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application
+Hence, When we have data source then we can do query as much as we wants
 
 ### We can imporve
 - Delegate gzip, SSL to a reverse proxy 
