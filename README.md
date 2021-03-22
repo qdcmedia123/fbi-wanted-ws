@@ -75,8 +75,10 @@ sudo gedit /etc/hosts
 
 # We have many routes, You should be able to access some of them
 URL METHOD Payload 
+# Place the domain that you have set in hosts file
 https://fbi.dev/api/users/signup POST {"email": "test@gmail.com", "password": "password"} 
 https://fbi.dev/api/fbi/list GET FBI Wanted List with Event Published to other services
+https://fbi.dev/api/fbi/fbiById/0d059518d23c425f840a8feae31a5f1a GET  Need to be authenticated
 ```
 
 ## Security 
