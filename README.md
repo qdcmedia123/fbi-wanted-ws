@@ -135,7 +135,7 @@ Hence, When we have data source then we can do query as much as we wants
 - Keep evaluating the state of application 
 - Too many request Prevention
 - Avoid DOS attacks by explicitly setting when a process should crash
-- While Developing pipeline creating github workflow, github action and running testing and apply all Kubernetes setting from github, We can use jenkins server as well
+- While Developing pipeline creating GitHub workflow, GitHub action and running testing and apply all Kubernetes setting from GitHub, We can use jenkins server as well
 - etc
 
 ### Request 
