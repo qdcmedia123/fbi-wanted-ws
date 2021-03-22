@@ -142,6 +142,6 @@ Hence, When we have data source then we can do query as much as we wants
 - While Developing pipeline creating GitHub workflow, GitHub action and running testing and apply all Kubernetes setting from GitHub, We can use Jenkins server as well
 - etc
 
-### Request 
+### 
 Hope I will have opportunity to discuss how this application can be improved and more things which has not been done can be done in more practical way, How they can be accomplished
 
