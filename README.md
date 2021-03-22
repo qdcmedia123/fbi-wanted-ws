@@ -83,7 +83,7 @@ https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
 When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
 
 ### Scaling our application 
-In k8s folder in deployment files for each configuration file if we increase the number for replicas then, one way we can increase number for replicas, but on the other hand It will consume more resources too.
+In k8s folder in deployment files for each configuration file if we increase the number of replicas then, one way we can increase number of replicas, but on the other hand It will consume more resources too.
 
 ``` bash
 #spec:
