@@ -1,3 +1,4 @@
+
 # Evnironment, Installation
 - Nodejs with TypeScript, Jest
 - Docker
@@ -41,7 +42,7 @@ minikube addons enable ingress
 kubectl expose deployment ingress-nginx-controller --target-port=80 --type=NodePort -n kube-system
 
 # add secret to our cluster, its used in auth service and in testing too
-kubectl create secret generic jwt-secret  --from-literal=JWT_KEY=asdf
+kubectl create secret generic jwt-secret --from-literal=JWT_KEY=asdf
 
 # install dependencies for fbi service
 cd fbi && npm install 
@@ -69,15 +70,14 @@ sudo gedit /etc/hosts
 # In the settings, turn off the SSL certificate verification option in postman
 
 # We have many routes, You should be able to access some of them
-URL                                 METHOD     Payload                                  
-https://fbi.dev/api/users/signup    POST       {"email": "test@gmail.com", "password": "password"} 
-https://fbi.dev/api/fbi/list        GET         FBI Wanted List with Event Published to other services
+URL METHOD Payload 
+https://fbi.dev/api/users/signup POST {"email": "test@gmail.com", "password": "password"} 
+https://fbi.dev/api/fbi/list GET FBI Wanted List with Event Published to other services
 ```
 
 ## Security 
 https://fbi.dev/api/fbi/list is publice but 
 https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
-
 
 ### Event subscriptions
 When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
@@ -87,8 +87,8 @@ In k8s folder in deployment files for each configuration file if we increase the
 
 ``` bash
 #spec:
-#  replicas: 1
-#  selector:
+# replicas: 1
+# selector:
 
 ```
 
@@ -98,40 +98,48 @@ Yes we do log, I am using simple console due to timeline, It is important to log
 - If NATS has some issue for the connection, 
 - Some keys has been missed in Kubernetes cluster for example 
 - NATS_CLIENT_ID or JWT_KEY is undefined
-- Minibike may be stopped to work due to out of store in container, storage might   be out of capacity, 
+- Minibike may be stopped to work due to out of store in container, storage might be out of capacity, 
 - Issue with Loading Balancing, Store Management, Application 
 - Database is down the communication with other microservice was unsuccessful
 - It can be anything in our application, in infrastructure etc
 
-There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I things is best way to log in Kubernetes is to have separate services which listen event whenever anything we need to log from the application then its simply publish the event the concern pods/service handle the logging, where we have proper model for log handling the its saves in permanent storage
+There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I thing is best way to log in Kubernetes is to have separate services which listen event whenever anything we need to log from the application then its simply publish the event to the concern pods/service which handle logging, where we have proper model for log handling the its saves in permanent storage such as MySQL, MongoDB, PostGreSQL
 
 ### Persistent Caching 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
-### Caching 
 
-Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to the permanent catch , so that we will not request to the server each time as peruser request to our backend server,
+### Caching 
+Well, I have created service inside the Kubernetes cluster to serve Redis server to save the data to permanent catch ,so that we will not request to the server each time as peruser request to our backend server,
+
+Lets say 
 
 Normally how we cache the data, for example I have list of wanted list and I have a lot of query such as get by office, locations, title it can be anything which is available in our each item attributes.
 
-When I have access of full data then for example I have 10000 records in total then, this data become source of caching and rest of the query I will have to do from my script for example getting 10 first item from the array 
+When I have access of full data then for example I have 10000 records in total then, this data become source of caching and rest of the query I will have to do from my script for example getting 10 first item from the array with office in oslo
 
-const cached = data;
-const getItem = data.slice(skip, limit) // SELCT * FROM wanted list skip(init) limit(init)
+let cached = data;
+let getItem = data.slice(skip, limit) // SELCT * FROM wanted list skip(init) limit(init)
 // In the same way we do in SQL 
+
+In the same way If I do query from our cache then query could be something like this 
+
+const data = cachedData;
+const query = data.filter(function(item){
+  return item.office === ’miami’
+}).slice(skip, limit);
 
 What is mean to say is in current scenario caching system will not be more effective, efficient, reliable and more time consuming and will not provide better result unless we have complete data source
 
 User can do query to our data in different way therefore we are not storing all ways but we are storing source of data and query on the data which is available through the cache
 
 But the current api providing each page item
-https://api.fbi.gov/wanted/v1/list
+
 
 and designing caching system in this system require more time to make it work in complete scenario such as pagination, search by different attributes etc
 
-
 Caching system work with for example database or any other source where data get permanently save and at the same time there is different kind of cache policy for example Write through cache, Write around cache, Write back cache
 
-but what I found is, in current situation and the time frame all our query can not perform until and unless I spent more time on it in current situation
+but what I found is, in current situation and the time frame all our query can not perform until and unless I spent more time on it
 
 In real world its not more efficient to caching each user query to our caching server and serve to the client, More efficient when we have source of data available, then we do our query through our application
 
@@ -142,10 +150,11 @@ In real world its not more efficient to caching each user query to our caching s
 - Cluster monitoring tools
 - Resource Management
 - Keep evaluating the state of application 
-- Brute Force Attack Prevention, Too many request
+- Too many request Prevention
 - Avoid DOS attacks by explicitly setting when a process should crash
-- While Developing pipeline creating github action and running testing and apply all Kubernetes setting from github
+- While Developing pipeline creating github workflow, github action and running testing and apply all Kubernetes setting from github, We can use jenkins server as well
 - etc
 
 ### Request 
-Hope I will have opportunity to discuss how this application can be improved and more things which has not been done, How they can be accomplished
+Hope I will have opportunity to discuss how this application can be improved and more things which has not been done can be done in more practical way, How they can be accomplished
+
