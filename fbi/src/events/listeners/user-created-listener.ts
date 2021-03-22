@@ -2,7 +2,7 @@ import { Listener, Subjects, UserCreatedEvent} from '@sweettech123/common'
 import {queuGroupName} from './queue-group-name';
 import {Message} from 'node-nats-streaming';
 
-export class UserCreatedListender extends Listener<UserCreatedEvent> {
+export class UserCreatedListener extends Listener<UserCreatedEvent> {
     subject:Subjects.UserCreated = Subjects.UserCreated;
     queueGroupName = queuGroupName;
     async onMessage(data: UserCreatedEvent['data'], msg:Message) {
