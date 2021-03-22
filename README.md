@@ -122,7 +122,7 @@ const query = data.filter(function(item){
 
 Existing api does not provide complete data  https://www.fbi.gov/wanted/api
 
-I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, resuable, can handle different user query and for large data we will have to store large number of query in chacned.
+I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, resuable, can handle different user query and for large data we will have to store large number of query in cached data.
 
 Hence, When we have data source then we can do query as much as we wants
 
