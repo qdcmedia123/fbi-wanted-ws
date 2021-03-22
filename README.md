@@ -98,7 +98,7 @@ Yes we do log, I am using simple console due to timeline, It is important to do 
 - If NATS has some issue for the connection, 
 - Some keys has been missed in Kubernetes cluster for example 
 - NATS_CLIENT_ID or JWT_KEY is undefined
-- Minibike may be stopped to work due to out of store in container, storage might be out of capacity, 
+- Minibike may be stopped to work due to out of store in container, storage might be out of capacity
 - Issue with Loading Balancing, Store Management, Application 
 - Database is down the communication with other microservice was unsuccessful
 - It can be anything in our application, in infrastructure etc
