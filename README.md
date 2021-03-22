@@ -30,6 +30,9 @@ When we run skaffold dev then if we change any thing in our local machine, then 
 # install skaffold 
 https://skaffold.dev/docs/install/
 
+# If you are running minikube on linux 
+minikube start
+
 # If you are using minikube in mac then start minikube with hyperkit driver 
 minikube start --vm-driver=hyperkit
 
