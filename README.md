@@ -1,6 +1,7 @@
 
 # Environments 
-- Nodejs with TypeScript, Jest
+- NodeJS with TypeScript, Jest
+- NPM
 - Docker
 - Kubernetes
 - Minikube
