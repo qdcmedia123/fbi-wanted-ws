@@ -109,7 +109,7 @@ Yes we do log, I am using simple console due to timeline, It is important to do 
 - Database is down the communication with other microservice was unsuccessful
 - It can be anything in our application, in infrastructure etc
 
-There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I thing is best way to log in Kubernetes is to have separate services which listen event whenever anything we need to log from the application then its simply publish the event to the concern pods/service which handle logging, where we have proper model for log handling the its store in permanent storage such as MySQL, MongoDB, PostGreSQL
+There is different way of logging in Nodejs, Kubernetes application for example in application level log4js, Winston, More robots service such as ELK Stack but with my opinion what I thing is best way to log in Kubernetes is to have separate services which listen event whenever anything we need to log from the application then its simply publish the event to the concern pods/service which handle logging, where we have proper model for log handling which store in permanent storage such as MySQL, MongoDB, PostGreSQL
 
 ### Persistent Caching 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
