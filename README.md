@@ -80,7 +80,7 @@ https://fbi.dev/api/fbi/list is publice but
 https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
 
 ### Event subscriptions
-When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc
+When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc.
 
 ### Scaling our application 
 In k8s folder in deployment files for each configuration file if we increase the number of replicas then, one way we can increase number of replicas, but on the other hand It will consume more resources too.
@@ -93,7 +93,7 @@ In k8s folder in deployment files for each configuration file if we increase the
 ```
 
 ### Logging 
-Yes we do log, I am using simple console due to timeline, It is important to log in any application for example it can be different reason, for example 
+Yes we do log, I am using simple console due to timeline, It is important to do smart logging in any application for example it can be different reason, for example 
 - Any kind of Debug, Info, Warning, Error
 - If NATS has some issue for the connection, 
 - Some keys has been missed in Kubernetes cluster for example 
