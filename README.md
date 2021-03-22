@@ -76,7 +76,7 @@ https://fbi.dev/api/fbi/list GET FBI Wanted List with Event Published to other s
 ```
 
 ## Security 
-- https://fbi.dev/api/fbi/list is publice but 
+- https://fbi.dev/api/fbi/list is Public  
 - https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
 
 ### Event subscriptions
