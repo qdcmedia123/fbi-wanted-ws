@@ -14,10 +14,10 @@ Node Nats Streaming has been used to create event based server(web socket), Whil
 event with data structure placed in listener folder of each service
 
 ## 1.2 Docker file is added to its services
-Docker file has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
+Docker files has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 
 ## 1.3 Kubernetes 
-Deployment file has been added to infra/k8s directory
+Deployment files has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
 When we run skaffold dev then if we change any thing in our local machine files then It builds, pushes to docker hub and apply deployment files, you can do it manually as well
