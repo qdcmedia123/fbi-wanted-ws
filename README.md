@@ -19,7 +19,7 @@ Docker files has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 ## 1.3 Kubernetes config files
 Deployment files has been added to infra/k8s directory
 
-## 1.4 Automation of local develpment workflow 
+## 1.4 Automation of local development workflow 
 When we run skaffold dev then if we change any thing in our local machine, then It builds, pushes to docker hub and apply deployment files, you can do it manually as well
 - Build the image, 
 - Push to docker hub 
@@ -122,11 +122,11 @@ const query = data.filter(function(item){
 
 Existing api does not provide complete data  https://www.fbi.gov/wanted/api
 
-I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, resuable, can not handle different user query and for large data we will have to store large number of query in cached data.
+I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, reusable, can not handle different user query and for large data we will have to store large number of query in cached data.
 
 Hence, When we have data source then we can do query as much as we wants
 
-### We can imporve
+### We can improve
 - Delegate gzip, SSL to a reverse proxy 
 - Documentation using Swagger.io
 - Enable brute force protection
