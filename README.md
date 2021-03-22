@@ -13,7 +13,7 @@
 Node Nats Streaming has been used to create event based server(web socket), While fetching the FBI Wanted list, at the same time the api publish event called FetchedFBIWantedlist, other services can listen to that
 event with data structure placed in listener folder of each service
 
-## 1.2 Docker file is added to its services
+## 1.2 Docker files
 Docker files has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 
 ## 1.3 Kubernetes 
