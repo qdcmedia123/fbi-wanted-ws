@@ -1,5 +1,5 @@
 
-# Environments 
+# 1. Environments 
 - NodeJS with TypeScript, Jest
 - NPM
 - Docker
@@ -10,7 +10,7 @@
 - MongoDB
 - REST
 
-## Websocket API in NodeJS
+## 1.1 Websocket API in NodeJS
 Node Nats Streaming has been used to create event based server(web socket), While fetching the FBI Wanted list, at the same time the api publish event called FetchedFBIWantedlist, other services can listen to that
 event with data structure placed in listener folder of each service
 
