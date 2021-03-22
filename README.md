@@ -115,7 +115,7 @@ I can integrate Velero.io to our application which provides safely backup and re
 Lets say for example I would like to get second page from the db and each page should be 20 item and office = ’miami’ SQL Query will be something like this 
 
 ``` bash 
-SELECT Field_name from table where office = ’Miami’ limit skip limit 
+SELECT Field_name from table where office = ’Miami’ limit ${skip} ${limit} 
 ```
 
 In the same way If I do query from our cache then query could be something like this 
