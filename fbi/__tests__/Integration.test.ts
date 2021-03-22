@@ -6,8 +6,8 @@ import request from "supertest";
 import { app } from "../src/app";
 import { natsWrapper } from "../src/nats-wrapper";
 
-it("Throw en 401 auth error, if user is not authenticated", async () => {
-  await request(app).get("/api/fbi/list/sdfsdf").send({}).expect(401);
+it("Throw en 400 error, If page param is not provided number", async () => {
+  await request(app).get("/api/fbi/list/sdfsdf").send({}).expect(400);
 });
 
 it("Throw an bad request error if pagination value set to string", async () => {
