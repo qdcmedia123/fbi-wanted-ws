@@ -16,7 +16,7 @@ event with data structure placed in listener folder of each service
 ## 1.2 Docker files
 Docker files has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 
-## 1.3 Kubernetes 
+## 1.3 Kubernetes config files
 Deployment files has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
