@@ -20,7 +20,7 @@ Docker files has been added to its service fbi/Dockerfile, fbi_auth/Dockerfile
 Deployment files has been added to infra/k8s directory
 
 ## 1.4 Automation of local develpment workflow 
-When we run skaffold dev then if we change any thing in our local machine files then It builds, pushes to docker hub and apply deployment files, you can do it manually as well
+When we run skaffold dev then if we change any thing in our local machine, then It builds, pushes to docker hub and apply deployment files, you can do it manually as well
 - Build the image, 
 - Push to docker hub 
 - kubectl apply -f {deployment_file_name.yaml}
