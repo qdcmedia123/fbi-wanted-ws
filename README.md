@@ -76,8 +76,8 @@ https://fbi.dev/api/fbi/list GET FBI Wanted List with Event Published to other s
 ```
 
 ## Security 
-https://fbi.dev/api/fbi/list is publice but 
-https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
+- https://fbi.dev/api/fbi/list is publice but 
+- https://fbi.dev/api/fbi/fbiById/:uid is protected, User must be login or sign up
 
 ### Event subscriptions
 When we are fetching FBI Wanted List then its publishes event to Kubernetes cluster. Other services can subscribe to listen, for example we have fbi-auth service fbi-auth service listening the event from fbi service in the same way. When new user is registered then fbi services also get notified about that, the user is added, all abstract typescript class which define inside common folder can be use in different services, to know the subject, event type, event data type etc.
@@ -120,7 +120,8 @@ const query = data.filter(function(item){
   return item.office === ’miami’
 }).slice(skip, limit);
 
-Existing api does not provide complete data  https://www.fbi.gov/wanted/api
+Existing api does not provide complete data  https://www.fbi.gov/wanted/api, If I have api where I can
+get 967 items at once then It would be more effective, extendable, functional, consume less resource.
 
 I can still implement the cache system in current scenario but It will take time and moreover it will not be more efficient, reusable, can not handle different user query and for large data we will have to store large number of query in cached data.
 
