@@ -115,7 +115,7 @@ There is different way of logging in Nodejs, Kubernetes application for example 
 I can integrate Velero.io to our application which provides safely backup and restore, perform disaster recovery, and migrate Kubernetes cluster resources and persistent volumes. For that we need to have bucket provider either and persistent volumes provider which is premium services provided by different cloud service provider
 
 ### Caching 
-Lets say for example I would like to get second page from the db and each page should be 20 item and office = ’miami’ SQL Query will be something like this 
+Lets say for example I would like to get second page from the db and each page should be 20 items and office = ’miami’ SQL Query will be something like this 
 
 ``` bash 
 SELECT Field_name from table where office = ’Miami’ limit ${skip} ${limit} 
