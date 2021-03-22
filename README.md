@@ -53,7 +53,7 @@ cd ../fbi-auth && npm install
 # can be run in both folder fbi and fbi-auth, this is test in local environment, when we push to GitHub or GitLab we will have our git hub action where all test will run there too
 npm run test 
 
-# Running kubernetes cluster with skaffold run in root folder of the project eg(fbi-wanted-ws)
+# Running kubernetes cluster with skaffold dev in root folder of the project eg(fbi-wanted-ws)
 skaffold dev 
 ``` 
 ## Would like to test as a real client from postman
