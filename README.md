@@ -152,7 +152,7 @@ I can still implement the cache system in current scenario but It will take time
 
 Hence, When we have data source then we can do query as much as we wants
 
-### I can improve
+### can be improve
 
 -   Delegate gzip, SSL to a reverse proxy
 -   Documentation using Swagger.io
